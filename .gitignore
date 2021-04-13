@@ -2,3 +2,4 @@ Dockerfile
 *.sql
 venv
 venv/*
+data
