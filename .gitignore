@@ -3,3 +3,4 @@ Dockerfile
 venv
 venv/*
 data
+__pycache__
