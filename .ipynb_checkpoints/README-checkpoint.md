@@ -45,3 +45,14 @@ Query to check the weekday with highest number of songs played:
 Query to retrieve the tile of all songs that last more than the avarage duration:
 
 `SELECT title FROM songs WHERE duration >= (SELECT AVG(duration) FROM songs);`
+
+## Files in the repo
+
+The files inside this repository can be divided in *production* an *testing*.
+
+The *production* files are the Python ones that are used to:
+
+- run the tables generation inside `sparkifydb`.
+- process the song/log data via the data pipeline.
+
+Jupyter notebooks are used as *testing* files to inspect the content of the database and the individual ETL steps.

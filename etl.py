@@ -6,7 +6,18 @@ from sql_queries import *
 
 
 def process_song_file(cur, filepath):
-    # open song file
+    """Upload song records from JSON file to dedicated sparkifydb tables.
+    
+    Parameters
+    -----------
+    cur: psycopg2 cursor object
+    filepath: string path to the input file
+    
+    Returns
+    -------
+    None
+    
+    """
     df = pd.read_json(filepath, lines=True)
 
     # insert song record
@@ -19,7 +30,18 @@ def process_song_file(cur, filepath):
 
 
 def process_log_file(cur, filepath):
-    # open log file
+    """Upload log records from JSON file to dedicated sparkifydb tables.
+    
+    Parameters
+    -----------
+    cur: psycopg2 cursor object
+    filepath: string path to the input file
+    
+    Returns
+    -------
+    None
+    
+    """
     df = pd.read_json(filepath, lines=True)
 
     # filter by NextSong action
@@ -61,7 +83,20 @@ def process_log_file(cur, filepath):
 
 
 def process_data(cur, conn, filepath, func):
-    # get all files matching extension from directory
+    """Navigate the directory tree to fetch files for proper processing.
+    
+    Parameters
+    -----------
+    cur: psycopg2 cursor object
+    conn: psycopg2 connection object
+    filepath: string path to the input file
+    func: processing function to handle the JSON file
+    
+    Returns
+    -------
+    None
+    
+    """
     all_files = []
     for root, dirs, files in os.walk(filepath):
         files = glob.glob(os.path.join(root,'*.json'))
@@ -80,6 +115,7 @@ def process_data(cur, conn, filepath, func):
 
 
 def main():
+    """Run the entire workflow steps."""
     conn = psycopg2.connect("host=127.0.0.1 dbname=sparkifydb user=student password=student")
     cur = conn.cursor()
 
