@@ -56,3 +56,5 @@ The *production* files are the Python ones that are used to:
 - process the song/log data via the data pipeline.
 
 Jupyter notebooks are used as *testing* files to inspect the content of the database and the individual ETL steps.
+
+the `README.md` file and the `/imgs` folder are used for documentation support.
