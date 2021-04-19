@@ -1,4 +1,4 @@
-# Data Modeling in Postgres - FGastaldello submission
+# Data Modeling in Postgres
 
 ## Purpose/Goals
 
